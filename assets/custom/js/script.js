@@ -316,12 +316,17 @@ jQuery(document).ready(function () {
     // OpenMovieDB API Calling
     //
     
-    function concatQuery(query){
+    //Make ajax synchronous.
+    //Not the best solution, but appropriate for this project
+    $.ajaxSetup({
+        async: false
+    });
+    
+    function cleanQuery(query){
         var words = query.split(" ");        
         //console.log(words);
         var search_string = "";
         
-        //Make a string suitable for '?s=______' api call
         for(var i = 0; i < words.length; i++){
             //Catch extra spaces in query
             if(words[i] === ""){
@@ -329,9 +334,9 @@ jQuery(document).ready(function () {
             }          
             //If not the last entry in the array...
             else if((i + 1 != words.length)){
-                search_string += (words[i] + "%20");
+                search_string += (words[i] + " ");
             }           
-            //If last entry, don't add %20
+            //If last entry, don't add space
             else{
                 search_string += words[i];
             }
@@ -341,11 +346,24 @@ jQuery(document).ready(function () {
         return search_string;
     }
     
+    function apiCall(query, callback){
+        
+        var url = "http://www.omdbapi.com/?s=" + encodeURI(query);
+        $.getJSON(url).then(function(data){
+            console.log(data.Response);
+            if(data.Response === "True"){
+                callback(data.Search);
+            }
+        });
+    }
+    
     function getSearchResults(query){
-        var url = "http://www.omdbapi.com/?s=" + query;
-        $.getJSON((url, function(data){
-            alert(data);         
-        }));
+        var results;
+        apiCall(query, function(data){
+            results = data;
+        });
+        
+        return results;
     }
     
     //Set 'Enter' listener on search bar
@@ -353,9 +371,10 @@ jQuery(document).ready(function () {
         if(event.keyCode == 13){
             //Take input, get ready for API call
             var search_text = $("#search_bar").val();
-            var url_argument = concatQuery(search_text);
+            var url_argument = cleanQuery(search_text);
             
-            getSearchResults(url_argument);
+            var results = getSearchResults(url_argument);
+            console.log(results);
             
         }
     });
