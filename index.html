@@ -91,14 +91,16 @@
 						<img src="assets/custom/images/backgrounds/index-background.jpg"  alt="fullslide2"  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat">
 						
 						<!-- MAIN TITLE -->
-						<div class="tp-caption cap-title font-accident-one-bold lfb ltt tp-resizeme rs-parallaxlevel-1"
+						<div id="index_title"
+								class="tp-caption cap-title font-accident-one-bold lfb ltt tp-resizeme rs-parallaxlevel-1"
 							  data-x="center"
 							  data-y="250"
 							  style="z-index: 2; white-space: nowrap;">OpenMovieDB Example Project
 						</div>
 
 						<!-- SUBTITLE -->
-						<div class="tp-caption cap-subtitle font-accident-one-normal lfb ltt tp-resizeme rs-parallaxlevel-1"
+						<div id="index_subtitle"
+								class="tp-caption cap-subtitle font-accident-one-normal lfb ltt tp-resizeme rs-parallaxlevel-1"
 							  data-x="center"
 							  data-y="470"
 							  style="z-index: 3; white-space: nowrap;">Start by searching for movie below
@@ -114,6 +116,16 @@
 									placeholder="Enter Movie Name"
 									onfocus="this.placeholder = ''"
 									onblur= "this.placeholder = 'Enter Movie Name';"/input>
+							<button id="search_button" type="submit" style="align-content: center;"></button>
+						</div>
+						
+						<!--THEME COPYRIGHT INFO-->
+						<div id="copyrights-wrapper" class="tp-caption font-accident-one-normal lfb ltt tp-resizeme rs-parallaxlevel-1"
+								data-x="center"
+								data-y="850">
+										<div style="color: #ffffff;"> Template by <a href="http://neuethemes.net" target="_blank">Neuethemes</a>. All rights reserved</div>
+										<div><a href="http://neuethemes.net" target="_blank">Legal Notice</a></div>
+										<div><a href="http://neuethemes.net" target="_blank">Terms & Conditions</a></div>
 						</div>
 					</li>
 					
@@ -121,6 +133,8 @@
 					
             </ul>
             <div class="tp-bannertimer"></div>
+						
+
           </div>
 
           <!-- Header and Menu Ovelay Mode -->
@@ -138,53 +152,9 @@
                       <ul class="sf-menu clearfix" id="example">
                          <li><a href="index.html">Home</a>
                             <div class="mobnav-subarrow"></div>
-                            <ul class="submenu">
-                               <li><a href="index01.html">Transparent Header with Dark menu.</a></li>
-                               <li><a href="index02.html">Opaque Header with Light menu.</a></li>
-                               <li><a href="index03.html">Opaque Header with Dark menu.</a></li>
-                            </ul>
                          </li>
                          <li class="current"><a href="about.html">About</a></li>
-                         <li><a href="portfolio-3-col-caption.html">Portfolio</a>
-                            <div class="mobnav-subarrow"></div>
-                            <ul class="submenu">
-                               <li><a href="portfolio-4-col-caption.html">Portfolio 4 columns</a>
-                                  <ul class="submenu">
-                                     <li><a href="portfolio-4-col.html">Portfolio 4 columns without Captions</a></li>
-                                     <li><a href="portfolio-4-col-nogutter.html">Portfolio 4 columns without gutters</a></li>
-                                  </ul>
-                               </li>
-                               <li><a href="portfolio-3-col-caption.html">Portfolio 3 columns</a>
-                                  <ul class="submenu">
-                                     <li><a href="portfolio-3-col.html">Portfolio 3 columns without Captions</a></li>
-                                     <li><a href="portfolio-3-col-nogutter.html">Portfolio 3 columns without gutters</a></li>
-                                  </ul>
-                               </li>
-                               <li><a href="portfolio-2-col-caption.html">Portfolio 2 columns</a>
-                                  <ul class="submenu">
-                                     <li><a href="portfolio-2-col.html">Portfolio 2 columns without Captions</a></li>
-                                     <li><a href="portfolio-2-col-nogutter.html">Portfolio 2 columns without gutters</a></li>
-                                  </ul>
-                               </li>
-                               <li><a href="portfolio-item.html">Portfolio Item</a></li>
-                            </ul>
-                         </li>
-                         <li><a href="blog-sb-left.html">Blog</a>
-                            <div class="mobnav-subarrow"></div>
-                            <ul class="submenu">
-                               <li><a href="blog-sb-left.html">Blog with left Sidebar</a></li>
-                               <li><a href="blog-sb-right.html">Blog with right Sidebar</a></li>
-                               <li><a href="blog-sb-double.html">Blog with double Sidebars</a></li>
-                               <li><a href="blog-wo-sb.html">Blog without Sidebar</a></li>
-                               <li><a href="blog-post.html">Single Blog Post</a></li>
-                            </ul>
-                         </li>
-                         <li><a href="contacts.html">Contacts</a></li>
-                         <li><a href="shop.html">Shop</a>
-                            <div class="mobnav-subarrow"></div>
-                            <ul class="submenu">
-                               <li><a href="shop-item.html">Shop Item</a></li>
-                            </ul>
+                         <li><a href="https://github.com/cmcnutt1/OMDb-Website">Github Page</a>
                          </li>
                          <!--<li><a href="#"><i class="fa fa-search"></i></a>-->
                             <!--<div class="mobnav-subarrow"></div>-->
@@ -199,7 +169,6 @@
                                <!--</li>-->
                             <!--</ul>-->
                          <!--</li>-->
-                         <li><a href="https://wrapbootstrap.com/theme/electronic-multi-purpose-template-WB081421P" target="_blank">Buy</a></li>
                       </ul>
 
                    </nav>
@@ -209,7 +178,8 @@
 			 </header>
           <!-- /Header and Menu Ovelay Mode -->
 
-        </div>
+
+				 
 
 	 </article>
 
@@ -217,97 +187,8 @@
        
     </div>
 
-    <!-- footer -->
-    <div id="footer">
-        <div class="container">
-        <div class="row">
-          <div class="col-sm-3 wow fadeIn">
-            <div class="infoblock">
-              <!-- About Widget -->
-              <h2 class="font-accident-one-bold">HTML Template</h2>
-              <p>Electronic HTML Template is the fastest way to build your own attractive website.</p>
+    
 
-              <p>Contrast, classic and colorful variations are available in the downloadable archive.</p>
-
-              <p>Just upload the creative template to your hosting and get the working website right now.</p>
-              <!-- / About Widget -->
-            </div>
-          </div>
-          <div class="col-sm-3 wow fadeIn">
-            <div class="infoblock">
-              <!-- Contacts Widget -->
-              <h2 class="font-accident-one-bold">Contacts</h2>
-              <div class="contact">
-                <div class="footer-addr">
-                  <div class="footer-icon"><i class="fa fa-home"></i></div>
-                  <div class="addr-text">12345, Direct Drive - 110, Daytona Beach, Florida, USA </div>
-                </div>
-                <div class="dividewhite1"></div>
-                <div class="footer-addr">
-                  <div class="footer-icon"><i class="fa fa-phone"></i></div>
-                  <div class="addr-text">1 234 567 67 45</div>
-                </div>
-                <div class="dividewhite1"></div>
-                <div     class="footer-addr">
-                  <div class="footer-icon"><i class="fa fa-envelope"></i></div>
-                  <div class="addr-text"><a href="mailto:info@electronicteam.com">info@electronicteam.com</a></div>
-                </div>
-              </div>
-              <!-- / Contacts Widget -->
-            </div>
-          </div>
-
-
-          <div class="col-sm-3 wow fadeIn">
-            <div class="infoblock">
-              <!-- Follow us Widget -->
-              <h2 class="font-accident-one-bold">Follow us</h2>
-              <div class="follow">
-                <div class="follow-element">
-                  <div class="follow-icon"><i class="fa fa-twitter"></i></div>
-                  <div class="follow-descr">
-                    <div class="follow-social"><a href="#">twitter</a></div>
-                    <div class="follow-numb">324</div>
-                  </div>
-                </div>
-                <div class="dividewhite1"></div>
-                <div class="follow-element">
-                  <div class="follow-icon"><i class="fa fa-facebook"></i></div>
-                  <div class="follow-descr">
-                    <div class="follow-social"><a href="#">facebook</a></div>
-                    <div class="follow-numb">653</div>
-                  </div>
-                </div>
-                <div class="dividewhite1"></div>
-                <div class="follow-element">
-                  <div class="follow-icon"><i class="fa fa-linkedin"></i></div>
-                  <div class="follow-descr">
-                    <div class="follow-social"><a href="#">linkedin</a></div>
-                    <div class="follow-numb">234</div>
-                  </div>
-                </div>
-              </div>
-              <!-- / Follow us Widget -->
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-    <div id="copyrights-wrapper">
-        <div class="container">
-            <div class="copyright wow fadeIn">
-                <div class="copy-attrs"> © 2014 <a href="http://neuethemes.net" target="_blank">Neuethemes</a>. All rights reserved</div>
-                <div class="copy-link">
-                    <a href="http://neuethemes.net" target="_blank">Legal Notice</a>
-                </div>
-                <div class="copy-link">
-                    <a href="http://neuethemes.net" target="_blank">Terms & Conditions</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- /footer -->
 
     <!-- Back to Top -->
     <div id="back-top"><a href="#top"></a></div>

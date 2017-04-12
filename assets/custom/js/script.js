@@ -25,7 +25,7 @@ jQuery(document).ready(function () {
     setTimeout(function(){
         jQuery('body').addClass('loaded');
         //jQuery('h1').css('color','#222222');
-    }, 9000);
+    }, 1000);
 
 
 
@@ -207,11 +207,10 @@ jQuery(document).ready(function () {
         jQuery(".heroimage-wrap").height(document_height);
     });
 
-
-
-
-
-    /* Slider Revolution */
+    /* Slider Revolution
+     *
+     * Used for sliding picture in. Also, it's baked into the template. Needs to be cleaned up
+     */
 
     if (jQuery('.tp-banner').length) {
         jQuery('.tp-banner').show().revolution(
@@ -276,7 +275,7 @@ jQuery(document).ready(function () {
                 autoHeight: "off",
                 forceFullWidth: "off",
 
-
+/*
                 hideThumbsOnMobile: "off",
                 hideNavDelayOnMobile: 1500,
                 hideBulletsOnMobile: "off",
@@ -287,45 +286,14 @@ jQuery(document).ready(function () {
                 hideCaptionAtLimit: 0,
                 hideAllCaptionAtLilmit: 0,
                 startWithSlide: 0
+*/
             });
     }
 
 
-    /* Back to top */
-
-    jQuery("#back-top").hide();
-
-    jQuery(window).scroll(function () {
-         if ($(this).scrollTop() > 100) {
-             $('#back-top').fadeIn();
-         } else {
-             $('#back-top').fadeOut();
-         }
-    });
-
-    jQuery('#back-top a').click(function () {
-         $('body,html').animate({
-             scrollTop: 0
-         }, 600);
-         return false;
-    });
-
-
-
-    /* Flickr feed */
-
-    jQuery('#basicuse').jflickrfeed({
-        limit: 10,
-        qstrings: {
-            id: '32532032@N06'
-        },
-        itemTemplate: '<li>' +
-        '<a href="{{image_b}}"><img src="{{image_s}}" class="img-rounded" alt="{{title}}" /></a>' +
-        '</li>'
-    });
-
-
-    /* Google Analytics */
+    
+    /* Google Analytics
+     **Not necessary, site's not going online. Commented out**
 
     (function (i, s, o, g, r, a, m) {
         i['GoogleAnalyticsObject'] = r;
@@ -341,18 +309,56 @@ jQuery(document).ready(function () {
 
     ga('create', 'UA-40696437-6', 'auto');
     ga('send', 'pageview');
-
-    var gmapIsReady = false;
-
-    jQuery('.gm-toggle-link').click(function() {
-        if (!gmapIsReady) {
-            initGmap();
+    */
+    
+    
+    //
+    // OpenMovieDB API Calling
+    //
+    
+    function concatQuery(query){
+        var words = query.split(" ");        
+        //console.log(words);
+        var search_string = "";
+        
+        //Make a string suitable for '?s=______' api call
+        for(var i = 0; i < words.length; i++){
+            //Catch extra spaces in query
+            if(words[i] === ""){
+                //do nothing
+            }          
+            //If not the last entry in the array...
+            else if((i + 1 != words.length)){
+                search_string += (words[i] + "%20");
+            }           
+            //If last entry, don't add %20
+            else{
+                search_string += words[i];
+            }
         }
-        jQuery('#gm-panel').slideToggle('slow');
+        
+        //Return the formatted query
+        return search_string;
+    }
+    
+    function getSearchResults(query){
+        var url = "http://www.omdbapi.com/?s=" + query;
+        $.getJSON((url, function(data){
+            alert(data);         
+        }));
+    }
+    
+    //Set 'Enter' listener on search bar
+    $("#search_bar").keydown(function(event){
+        if(event.keyCode == 13){
+            //Take input, get ready for API call
+            var search_text = $("#search_bar").val();
+            var url_argument = concatQuery(search_text);
+            
+            getSearchResults(url_argument);
+            
+        }
     });
-
-
-
 });
 
 
