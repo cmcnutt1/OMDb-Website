@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--[if IE 9]>  <html class="ie9" lang="en">    <![endif]-->
+<!--[if IE 8]>  <html class="ie8" lang="en">    <![endif]-->
+  <head>
+    <meta charset="UTF-8">
+	 <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>OpenMovieDatabase API Example Website </title>
+
+    <meta name="description" content="Example site, showcasing uses for the OpenMovieDatabase API">
+    <meta name="keywords" content="OpenMovieDatabase, OMDb, Bootstrap">
+
+    <!-- CSS -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css"                     rel="stylesheet" type="text/css" media="screen" />
+    <link href="assets/vendor/fontawesome/css/font-awesome.css"                    rel="stylesheet" type="text/css" media="screen" />
+    <link href="assets/vendor/novecento/css/novecento-font.css"                    rel="stylesheet" type="text/css" media="screen" />
+    <link href="assets/vendor/fancybox/css/jquery.fancybox.css?v=2.1.5"            rel="stylesheet" type="text/css" media="screen" />
+    <link href="assets/vendor/fancybox/css/jquery.fancybox-buttons.css?v=1.0.5"    rel="stylesheet" type="text/css" media="screen" />
+    <link href="assets/vendor/flexslider/css/flexslider.css"                       rel="stylesheet" type="text/css" media="screen" />
+    <link href="assets/vendor/rs-plugin/css/settings.css"                          rel="stylesheet" type="text/css" media="screen" />
+    <link href="assets/vendor/rs-plugin/css/extralayers.css"                       rel="stylesheet" type="text/css" media="screen" />
+	  <link href="assets/vendor/feather/css/feather.css"                             rel="stylesheet" type="text/css" media="screen" />
+    <link href="assets/custom/css/style.css"                                       rel="stylesheet" type="text/css" media="screen" />
+
+
+    <!-- JS -->
+    <script src="assets/vendor/jquery/js/jquery-1.10.1.min.js"                     type="text/javascript"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.min.js"                      type="text/javascript"></script>
+    <script src="assets/vendor/sticky/js/jquery.sticky.js"                         type="text/javascript"></script>
+    <script src="assets/vendor/mousewheel/js/jquery.mousewheel-3.0.6.pack.js"      type="text/javascript"></script>
+    <script src="assets/vendor/fancybox/js/jquery.fancybox.pack.js?v=2.1.5"        type="text/javascript"></script>
+    <script src="assets/vendor/fancybox/js/jquery.fancybox-buttons.js?v=1.0.5"     type="text/javascript"></script>
+    <script src="assets/vendor/fancybox/js/jquery.fancybox-media.js?v=1.0.6"       type="text/javascript"></script>
+    <script src="assets/vendor/superfish/js/hoverIntent.js"                        type="text/javascript"></script>
+    <script src="assets/vendor/superfish/js/superfish.js"                          type="text/javascript"></script>
+    <script src="assets/vendor/superfish/js/supersubs.js"                          type="text/javascript"></script>
+    <script src="assets/vendor/flexslider/js/jquery.flexslider-min.js"             type="text/javascript"></script>
+    <script src="assets/vendor/flickity/js/flickity.pkgd.min.js"                   type="text/javascript"></script>
+    <script src="assets/vendor/rs-plugin/js/jquery.themepunch.tools.min.js"        type="text/javascript"></script>
+    <script src="assets/vendor/rs-plugin/js/jquery.themepunch.revolution.min.js"   type="text/javascript"></script>
+    <script src="assets/vendor/stellar/js/jquery.stellar.min.js"                   type="text/javascript"></script>
+    <script src="assets/vendor/isotope/js/jquery.isotope.min.js"                   type="text/javascript"></script>
+    <script src="assets/vendor/imagesloaded/js/imagesloaded.pkgd.min.js"           type="text/javascript"></script>
+	  <script src="assets/vendor/modernizr/js/modernizr.js"                          type="text/javascript"></script>
+    <script src="assets/custom/js/script.js"                                       type="text/javascript"></script>
+
+
+    <!-- Fonts -->
+	 <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
+    <!--<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900,400italic' rel='stylesheet' type='text/css'>-->
+
+
+  </head>
+  <body>
+    <!-- Loader -->
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+    </div>
+    <!-- /Loader -->
+
+      <!-- sub-top -->
+     <!--<div id="sub-top-light">-->
+      <!--<div class="container">-->
+        <!--<div class="top-contacts">-->
+          <!--<div><a href="#"><i class="fa fa-instagram"></i>@electronic</a></div>-->
+          <!--<div><a href="#"><i class="fa fa-envelope"></i>info@electronic.com</a></div>-->
+          <!--<div><a href="#"><i class="fa fa-phone"></i>1 234 567 89 10</a></div>-->
+        <!--</div>-->
+        <!--<div class="top-shop"><a href="#"><i class="fa fa-shopping-cart"></i>0</a></div>-->
+      <!--</div>-->
+     <!--</div>-->
+      <!-- /sub-top -->
+
+    <!-- main-top -->
+
+    <!-- Revolution Slider -->
+
+    <article class="slider-revolution">
+
+       <div class="tp-banner-container">
+
+          <div class="tp-banner head-overlay" >
+            <ul>
+					<!-- SLIDE  -->
+					<li data-transition="boxfade" data-slotamount="1" data-masterspeed="1000" data-thumb="assets/custom/images/rs-images/fullslide2-320x200.jpg"  data-saveperformance="off"  data-title="Slide">
+						<!-- MAIN IMAGE -->
+						<img src="assets/custom/images/backgrounds/index-background.jpg"  alt="fullslide2"  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat">
+						
+						<!-- MAIN TITLE -->
+						<div class="tp-caption cap-title font-accident-one-bold lfb ltt tp-resizeme rs-parallaxlevel-1"
+							  data-x="center"
+							  data-y="250"
+							  style="z-index: 2; white-space: nowrap;">OpenMovieDB Example Project
+						</div>
+
+						<!-- SUBTITLE -->
+						<div class="tp-caption cap-subtitle font-accident-one-normal lfb ltt tp-resizeme rs-parallaxlevel-1"
+							  data-x="center"
+							  data-y="470"
+							  style="z-index: 3; white-space: nowrap;">Start by searching for movie below
+						</div>
+
+						<!-- SEARCHBAR -->
+						<div class="tp-caption lfb ltt tp-resizeme rs-parallaxlevel-1"
+							  data-x="center"
+							  data-y="700"
+							  style="z-index: 3; white-space: nowrap; max-width: 1200px;">
+							<input id="search_bar"
+									type="text"
+									placeholder="Enter Movie Name"
+									onfocus="this.placeholder = ''"
+									onblur= "this.placeholder = 'Enter Movie Name';"/input>
+						</div>
+					</li>
+					
+					
+					
+            </ul>
+            <div class="tp-bannertimer"></div>
+          </div>
+
+          <!-- Header and Menu Ovelay Mode -->
+			 <header id="header-wrapper-mp" class="head-overlay sticky-menu-light">
+
+				 <div class="sticky-header header-dark sticky-overlay nobg" role="navigation">
+					 <div class="container mp-nav">
+
+						 <div id="site-title"><h1 class="font-accident-one-bold">OMDb Extravaganza</h1></div>
+
+						 <div id="mobnav-btn"><i class="fa fa-bars"></i></div>
+
+                   <nav id="main-menu" class="site-navigation primary-navigation" role="navigation">
+
+                      <ul class="sf-menu clearfix" id="example">
+                         <li><a href="index.html">Home</a>
+                            <div class="mobnav-subarrow"></div>
+                            <ul class="submenu">
+                               <li><a href="index01.html">Transparent Header with Dark menu.</a></li>
+                               <li><a href="index02.html">Opaque Header with Light menu.</a></li>
+                               <li><a href="index03.html">Opaque Header with Dark menu.</a></li>
+                            </ul>
+                         </li>
+                         <li class="current"><a href="about.html">About</a></li>
+                         <li><a href="portfolio-3-col-caption.html">Portfolio</a>
+                            <div class="mobnav-subarrow"></div>
+                            <ul class="submenu">
+                               <li><a href="portfolio-4-col-caption.html">Portfolio 4 columns</a>
+                                  <ul class="submenu">
+                                     <li><a href="portfolio-4-col.html">Portfolio 4 columns without Captions</a></li>
+                                     <li><a href="portfolio-4-col-nogutter.html">Portfolio 4 columns without gutters</a></li>
+                                  </ul>
+                               </li>
+                               <li><a href="portfolio-3-col-caption.html">Portfolio 3 columns</a>
+                                  <ul class="submenu">
+                                     <li><a href="portfolio-3-col.html">Portfolio 3 columns without Captions</a></li>
+                                     <li><a href="portfolio-3-col-nogutter.html">Portfolio 3 columns without gutters</a></li>
+                                  </ul>
+                               </li>
+                               <li><a href="portfolio-2-col-caption.html">Portfolio 2 columns</a>
+                                  <ul class="submenu">
+                                     <li><a href="portfolio-2-col.html">Portfolio 2 columns without Captions</a></li>
+                                     <li><a href="portfolio-2-col-nogutter.html">Portfolio 2 columns without gutters</a></li>
+                                  </ul>
+                               </li>
+                               <li><a href="portfolio-item.html">Portfolio Item</a></li>
+                            </ul>
+                         </li>
+                         <li><a href="blog-sb-left.html">Blog</a>
+                            <div class="mobnav-subarrow"></div>
+                            <ul class="submenu">
+                               <li><a href="blog-sb-left.html">Blog with left Sidebar</a></li>
+                               <li><a href="blog-sb-right.html">Blog with right Sidebar</a></li>
+                               <li><a href="blog-sb-double.html">Blog with double Sidebars</a></li>
+                               <li><a href="blog-wo-sb.html">Blog without Sidebar</a></li>
+                               <li><a href="blog-post.html">Single Blog Post</a></li>
+                            </ul>
+                         </li>
+                         <li><a href="contacts.html">Contacts</a></li>
+                         <li><a href="shop.html">Shop</a>
+                            <div class="mobnav-subarrow"></div>
+                            <ul class="submenu">
+                               <li><a href="shop-item.html">Shop Item</a></li>
+                            </ul>
+                         </li>
+                         <!--<li><a href="#"><i class="fa fa-search"></i></a>-->
+                            <!--<div class="mobnav-subarrow"></div>-->
+                            <!--<ul class="submenu search-panel">-->
+                               <!--<li class="">-->
+                                  <!--<form class="form-inline" role="form">-->
+                                     <!--<div class="form-group">-->
+                                        <!--<input type="text" class="form-control" id="exampleInputEmail2" placeholder="Search">-->
+                                        <!--<button type="submit" class="btn btn-default">Ok</button>-->
+                                     <!--</div>-->
+                                  <!--</form>-->
+                               <!--</li>-->
+                            <!--</ul>-->
+                         <!--</li>-->
+                         <li><a href="https://wrapbootstrap.com/theme/electronic-multi-purpose-template-WB081421P" target="_blank">Buy</a></li>
+                      </ul>
+
+                   </nav>
+
+					 </div>
+
+			 </header>
+          <!-- /Header and Menu Ovelay Mode -->
+
+        </div>
+
+	 </article>
+
+
+       
+    </div>
+
+    <!-- footer -->
+    <div id="footer">
+        <div class="container">
+        <div class="row">
+          <div class="col-sm-3 wow fadeIn">
+            <div class="infoblock">
+              <!-- About Widget -->
+              <h2 class="font-accident-one-bold">HTML Template</h2>
+              <p>Electronic HTML Template is the fastest way to build your own attractive website.</p>
+
+              <p>Contrast, classic and colorful variations are available in the downloadable archive.</p>
+
+              <p>Just upload the creative template to your hosting and get the working website right now.</p>
+              <!-- / About Widget -->
+            </div>
+          </div>
+          <div class="col-sm-3 wow fadeIn">
+            <div class="infoblock">
+              <!-- Contacts Widget -->
+              <h2 class="font-accident-one-bold">Contacts</h2>
+              <div class="contact">
+                <div class="footer-addr">
+                  <div class="footer-icon"><i class="fa fa-home"></i></div>
+                  <div class="addr-text">12345, Direct Drive - 110, Daytona Beach, Florida, USA </div>
+                </div>
+                <div class="dividewhite1"></div>
+                <div class="footer-addr">
+                  <div class="footer-icon"><i class="fa fa-phone"></i></div>
+                  <div class="addr-text">1 234 567 67 45</div>
+                </div>
+                <div class="dividewhite1"></div>
+                <div     class="footer-addr">
+                  <div class="footer-icon"><i class="fa fa-envelope"></i></div>
+                  <div class="addr-text"><a href="mailto:info@electronicteam.com">info@electronicteam.com</a></div>
+                </div>
+              </div>
+              <!-- / Contacts Widget -->
+            </div>
+          </div>
+
+
+          <div class="col-sm-3 wow fadeIn">
+            <div class="infoblock">
+              <!-- Follow us Widget -->
+              <h2 class="font-accident-one-bold">Follow us</h2>
+              <div class="follow">
+                <div class="follow-element">
+                  <div class="follow-icon"><i class="fa fa-twitter"></i></div>
+                  <div class="follow-descr">
+                    <div class="follow-social"><a href="#">twitter</a></div>
+                    <div class="follow-numb">324</div>
+                  </div>
+                </div>
+                <div class="dividewhite1"></div>
+                <div class="follow-element">
+                  <div class="follow-icon"><i class="fa fa-facebook"></i></div>
+                  <div class="follow-descr">
+                    <div class="follow-social"><a href="#">facebook</a></div>
+                    <div class="follow-numb">653</div>
+                  </div>
+                </div>
+                <div class="dividewhite1"></div>
+                <div class="follow-element">
+                  <div class="follow-icon"><i class="fa fa-linkedin"></i></div>
+                  <div class="follow-descr">
+                    <div class="follow-social"><a href="#">linkedin</a></div>
+                    <div class="follow-numb">234</div>
+                  </div>
+                </div>
+              </div>
+              <!-- / Follow us Widget -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div id="copyrights-wrapper">
+        <div class="container">
+            <div class="copyright wow fadeIn">
+                <div class="copy-attrs"> © 2014 <a href="http://neuethemes.net" target="_blank">Neuethemes</a>. All rights reserved</div>
+                <div class="copy-link">
+                    <a href="http://neuethemes.net" target="_blank">Legal Notice</a>
+                </div>
+                <div class="copy-link">
+                    <a href="http://neuethemes.net" target="_blank">Terms & Conditions</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /footer -->
+
+    <!-- Back to Top -->
+    <div id="back-top"><a href="#top"></a></div>
+    <!-- /Back to Top -->
+
+
+  </body>
+</html>
