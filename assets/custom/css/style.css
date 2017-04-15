@@ -556,6 +556,7 @@ body {
   color: #333;
   font: 14px/1.7 "Oxygen", sans-serif;
   font-weight: 400;
+  background-image: url("../images/backgrounds/index-background.jpg");
   -webkit-font-smoothing: antialiased;
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
@@ -764,8 +765,6 @@ i {
     text-decoration: none; }
 
 /* Carousel */
-.carousel-inner > .item > a > img,
-.carousel-inner > .item > img,
 .img-responsive,
 .thumbnail a > img,
 .thumbnail > img {
@@ -3450,3 +3449,55 @@ a.gm-toggle-link {
     height: 80px; } }
 
 /*# sourceMappingURL=style.css.map */
+
+/* Additional CSS for carousel images */
+
+/*Make carousel images show up in middle of div*/
+.carousel-inner > .item > a > img {
+  margin:0 auto;
+  height: 350px;
+  width: 224px;
+  margin-top: 60px;
+}
+
+#search-display {
+  margin: 0 auto;
+  height: 500px;
+  width: 1200px;
+  background-color: #000;
+
+}
+
+.search-result-left {
+  max-width: 50%;
+  float: left;
+  margin-left: 20%;
+  margin-right: 10%;
+  text-align: center;
+  line-height: 1;
+  overflow: hidden;
+}  
+.search-result-right {
+  float: left;
+  margin-left: 10%;
+  margin-right: 20%;
+  text-align: center;
+  
+}
+
+.search-result-right > a > img,
+.search-result-left > a > img{
+  height: 350px;
+  width: 224px;
+  margin-top: 60px;
+}
+
+.search-result-right,
+.search-result-left > a  > p ,
+.item > a  {
+  max-width: 100%;
+  word-wrap: break-word;
+  overflow: hidden;
+}
+
+

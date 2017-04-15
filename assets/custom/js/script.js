@@ -318,10 +318,16 @@ jQuery(document).ready(function () {
     
     //Make ajax synchronous.
     //Not the best solution, but appropriate for this project
-    $.ajaxSetup({
+    /*$.ajaxSetup({
         async: false
     });
+    */
     
+    
+    /* cleanQuery: Clean up user's query. Only grab the words and numbers
+     *
+     * Parameters: query - User's search text
+     */
     function cleanQuery(query){
         var words = query.split(" ");        
         //console.log(words);
@@ -342,17 +348,18 @@ jQuery(document).ready(function () {
             }
         }
         
-        //Return the formatted query
+        //Return the cleaned query
         return search_string;
     }
     
-    function apiCall(query, callback){
+    function apiCall(query){
         
         var url = "http://www.omdbapi.com/?s=" + encodeURI(query);
         $.getJSON(url).then(function(data){
             console.log(data.Response);
             if(data.Response === "True"){
-                callback(data.Search);
+                console.log(data);
+                populateResults(data);
             }
         });
     }
@@ -366,15 +373,63 @@ jQuery(document).ready(function () {
         return results;
     }
     
+    function searchTransition(){
+        $("#index_subtitle").fadeOut("slow");
+        $("#index_title").animate({
+            top: "-=18%",
+        }, 1000);
+        $("#search-display").fadeIn(2000);
+    }
+    
+    function populateResults(json){
+        var movies = json.Search;
+        var result_len = movies.length;
+        var image_src = [];
+        
+        for(var i = 0; i<result_len; i++){
+            if(movies[i].Poster !== "N/A"){
+                image_src.push(movies[i].Poster);
+            }
+            else{
+                image_src.push("assets/custom/img/no-image.png");
+            }
+        }
+        
+        var i = 0;
+        
+        while(i+2 <= result_len){
+            
+            if(i===0){
+                $(".carousel-inner").append("<div class='item active'><div class ='search-result-left'><a href='#'><img src =" + image_src[i] + "><p style='margin-top: 20px'>" + movies[i].Title + "</p></img></a></div><div class='search-result-right'><a href='#'><img src =" + image_src[i+1] + "></img><p>" + movies[i+1].Title + "</p></a></div></div>");
+            }
+            else{
+                $(".carousel-inner").append("<div class='item'><div class ='search-result-left' style = 'align-text:center'><a href='#'><img src =" + image_src[i] + "></img></a></div><div class='search-result-right'><a href='#'><img src =" + image_src[i+1] + "></img></a></div>");//<div><h3>" + movies[i].Title + "</h3></div>");
+            }
+           
+           i+=2;
+        }
+        
+        if(i+1 < result_len){
+            if(i===0){
+                $(".carousel-inner").append("<div class='item active'><a href='#'><img src =" + image_src[i] + "></img></a></div>");
+            }
+            else{
+                $(".carousel-inner").append("<div class='item'><a href='#'><img src =" + image_src[i] + "></img></a></div>");
+            }
+        }
+  
+    }
+    
     //Set 'Enter' listener on search bar
     $("#search_bar").keydown(function(event){
         if(event.keyCode == 13){
+            //Delete anything inside of carousel, if there is anything
+            $(".item").remove();
             //Take input, get ready for API call
-            var search_text = $("#search_bar").val();
-            var url_argument = cleanQuery(search_text);
-            
-            var results = getSearchResults(url_argument);
-            console.log(results);
+            var search_text = cleanQuery($("#search_bar").val());            
+            var results = getSearchResults(search_text);
+            searchTransition();
+            //console.log(results);
             
         }
     });

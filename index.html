@@ -7,7 +7,7 @@
 	 <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>OpenMovieDatabase API Example Website </title>
+    <title>OpenMovieDatabase API Example Website</title>
 
     <meta name="description" content="Example site, showcasing uses for the OpenMovieDatabase API">
     <meta name="keywords" content="OpenMovieDatabase, OMDb, Bootstrap">
@@ -84,33 +84,57 @@
        <div class="tp-banner-container">
 
           <div class="tp-banner head-overlay" >
-            <ul>
-					<!-- SLIDE  -->
+          <ul>
+						<!--SLIDE--> 
 					<li data-transition="boxfade" data-slotamount="1" data-masterspeed="1000" data-thumb="assets/custom/images/rs-images/fullslide2-320x200.jpg"  data-saveperformance="off"  data-title="Slide">
 						<!-- MAIN IMAGE -->
 						<img src="assets/custom/images/backgrounds/index-background.jpg"  alt="fullslide2"  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat">
 						
 						<!-- MAIN TITLE -->
 						<div id="index_title"
-								class="tp-caption cap-title font-accident-one-bold lfb ltt tp-resizeme rs-parallaxlevel-1"
+								class="tp-caption cap-title font-accident-one-bold lfb ltt tp-resizeme"
 							  data-x="center"
-							  data-y="250"
-							  style="z-index: 2; white-space: nowrap;">OpenMovieDB Example Project
+							  style=" white-space: nowrap; top: 30%">OpenMovieDB Example Project
 						</div>
 
 						<!-- SUBTITLE -->
 						<div id="index_subtitle"
-								class="tp-caption cap-subtitle font-accident-one-normal lfb ltt tp-resizeme rs-parallaxlevel-1"
+								class="tp-caption cap-subtitle font-accident-one-normal lfb ltt tp-resizeme"
 							  data-x="center"
 							  data-y="470"
-							  style="z-index: 3; white-space: nowrap;">Start by searching for movie below
+							  style=" white-space: nowrap;">Start by searching for movie below
+						</div>
+						
+						<div id="search-display"
+								 class="tp-caption tp-resizeme"
+								 data-x="center"
+								 data-y="220"
+								 style="display: none; width=1200px; background-color: #000">
+							<div id="carousel-display"
+									 class = "carousel slide"
+									 data-ride="carousel"
+									 data-interval="false"
+									 style="width: 100%; height: 100%">
+								<!--Search results will populate in here via jQuery-->
+								<div class="carousel-inner" style="width: 100%; height: 100%;">
+								</div>
+								  <!-- Left and right controls -->
+							<a class="left carousel-control" href="#carousel-display" role="button" data-slide="prev">
+							  <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+							  <span class="sr-only">Previous</span>
+							</a>
+						  <a class="right carousel-control" href="#carousel-display" role="button" data-slide="next">
+						    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+								<span class="sr-only">Next</span>
+							</a>		
+							</div>
 						</div>
 
 						<!-- SEARCHBAR -->
-						<div class="tp-caption lfb ltt tp-resizeme rs-parallaxlevel-1"
+						<div class="tp-caption lfb ltt tp-resizeme"
 							  data-x="center"
-							  data-y="700"
-							  style="z-index: 3; white-space: nowrap; max-width: 1200px;">
+							  data-y="750"
+							  style=" white-space: nowrap; max-width: 1200px;">
 							<input id="search_bar"
 									type="text"
 									placeholder="Enter Movie Name"
@@ -119,25 +143,16 @@
 							<button id="search_button" type="submit" style="align-content: center;"></button>
 						</div>
 						
-						<!--THEME COPYRIGHT INFO-->
-						<div id="copyrights-wrapper" class="tp-caption font-accident-one-normal lfb ltt tp-resizeme rs-parallaxlevel-1"
-								data-x="center"
-								data-y="850">
-										<div style="color: #ffffff;"> Template by <a href="http://neuethemes.net" target="_blank">Neuethemes</a>. All rights reserved</div>
-										<div><a href="http://neuethemes.net" target="_blank">Legal Notice</a></div>
-										<div><a href="http://neuethemes.net" target="_blank">Terms & Conditions</a></div>
-						</div>
-					</li>
+					  </li>
 					
 					
 					
             </ul>
-            <div class="tp-bannertimer"></div>
 						
 
           </div>
 
-          <!-- Header and Menu Ovelay Mode -->
+          <!-- Header and Menu -->
 			 <header id="header-wrapper-mp" class="head-overlay sticky-menu-light">
 
 				 <div class="sticky-header header-dark sticky-overlay nobg" role="navigation">
@@ -178,21 +193,14 @@
 			 </header>
           <!-- /Header and Menu Ovelay Mode -->
 
-
+    </div>
 				 
 
 	 </article>
 
 
        
-    </div>
 
-    
-
-
-    <!-- Back to Top -->
-    <div id="back-top"><a href="#top"></a></div>
-    <!-- /Back to Top -->
 
 
   </body>
