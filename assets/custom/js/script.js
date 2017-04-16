@@ -354,7 +354,7 @@ jQuery(document).ready(function () {
     
     function apiCall(query){
         
-        var url = "http://www.omdbapi.com/?s=" + encodeURI(query);
+        var url = "http://www.omdbapi.com/?s=" + encodeURI(query) + "&type=movie";
         $.getJSON(url).then(function(data){
             console.log(data.Response);
             if(data.Response === "True"){
@@ -374,8 +374,8 @@ jQuery(document).ready(function () {
     }
     
     function searchTransition(){
-        $("#index_subtitle").fadeOut("slow");
-        $("#index_title").animate({
+        $("#index-subtitle").fadeOut("slow");
+        $("#index-title").animate({
             top: "-=18%",
         }, 1000);
         $("#search-display").fadeIn(2000);
@@ -391,7 +391,7 @@ jQuery(document).ready(function () {
                 image_src.push(movies[i].Poster);
             }
             else{
-                image_src.push("assets/custom/img/no-image.png");
+                image_src.push("assets/custom/images/no-image.png");
             }
         }
         
@@ -400,10 +400,10 @@ jQuery(document).ready(function () {
         while(i+2 <= result_len){
             
             if(i===0){
-                $(".carousel-inner").append("<div class='item active'><div class ='search-result-left'><a href='#'><img src =" + image_src[i] + "><p style='margin-top: 20px'>" + movies[i].Title + "</p></img></a></div><div class='search-result-right'><a href='#'><img src =" + image_src[i+1] + "></img><p>" + movies[i+1].Title + "</p></a></div></div>");
+                $(".carousel-inner").append("<div class='item active'><div class ='search-result-left'><a href='#'><img src =" + image_src[i] + "><p class='title-text'>" + movies[i].Title + "</p><p>(" + movies[i].Year + ")</p></img></a></div><div class='search-result-right'><a href='#'><img src =" + image_src[i+1] + "></img><p class='title-text'>" + movies[i+1].Title + "</p><p>(" + movies[i+1].Year + ")</p></a></div></div>");
             }
             else{
-                $(".carousel-inner").append("<div class='item'><div class ='search-result-left' style = 'align-text:center'><a href='#'><img src =" + image_src[i] + "></img></a></div><div class='search-result-right'><a href='#'><img src =" + image_src[i+1] + "></img></a></div>");//<div><h3>" + movies[i].Title + "</h3></div>");
+                $(".carousel-inner").append("<div class='item'><div class ='search-result-left' style = 'align-text:center'><a href='#'><img src =" + image_src[i] + "><p class='title-text'>" + movies[i].Title + "</p><p>(" + movies[i].Year + ")</p></img></a></div><div class='search-result-right'><a href='#'><img src =" + image_src[i+1] + "><p class='title-text'>" + movies[i+1].Title + "</p><p>(" + movies[i+1].Year + ")</p></img></a></div>");
             }
            
            i+=2;
@@ -411,14 +411,18 @@ jQuery(document).ready(function () {
         
         if(i+1 < result_len){
             if(i===0){
-                $(".carousel-inner").append("<div class='item active'><a href='#'><img src =" + image_src[i] + "></img></a></div>");
+                $(".carousel-inner").append("<div class='item active'><a href='#'><img src =" + image_src[i] + "><p class='title-text'>" + movies[i].Title + "</p><p>(" + movies[i].Year + ")</p></img></a></div>");
             }
             else{
-                $(".carousel-inner").append("<div class='item'><a href='#'><img src =" + image_src[i] + "></img></a></div>");
+                $(".carousel-inner").append("<div class='item'><a href='#'><img src =" + image_src[i] + "><p class='title-text'>" + movies[i].Title + "</p><p>(" + movies[i].Year + ")</p></img></a></div>");
             }
         }
+        
+            $(".title-text").dotdotdot();
   
     }
+    
+
     
     //Set 'Enter' listener on search bar
     $("#search_bar").keydown(function(event){
@@ -428,7 +432,9 @@ jQuery(document).ready(function () {
             //Take input, get ready for API call
             var search_text = cleanQuery($("#search_bar").val());            
             var results = getSearchResults(search_text);
-            searchTransition();
+            if($("#index-subtitle").css("display") !== "none"){
+                searchTransition();
+            }
             //console.log(results);
             
         }

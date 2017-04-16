@@ -3469,18 +3469,18 @@ a.gm-toggle-link {
 }
 
 .search-result-left {
-  max-width: 50%;
+  width: 35%;
   float: left;
-  margin-left: 20%;
-  margin-right: 10%;
+  margin-left: 10%;
+  margin-right: 5%;
   text-align: center;
-  line-height: 1;
   overflow: hidden;
 }  
 .search-result-right {
+  width: 35%;
   float: left;
-  margin-left: 10%;
-  margin-right: 20%;
+  margin-left: 5%;
+  margin-right: 10%;
   text-align: center;
   
 }
@@ -3492,12 +3492,19 @@ a.gm-toggle-link {
   margin-top: 60px;
 }
 
-.search-result-right,
+.search-result-right > a > p,
 .search-result-left > a  > p ,
-.item > a  {
-  max-width: 100%;
-  word-wrap: break-word;
+.item > a > p  {
+  margin-top: 40px;
   overflow: hidden;
+  line-height: 1;
+  width: 70%;
+  height: 42px;
+  margin: 0 auto;
+  text-align: center;
+  word-wrap: break-word;
+  white-space: normal;
+  font-size: 20px;
 }
 
 
