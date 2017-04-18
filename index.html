@@ -76,7 +76,7 @@
           <div class="tp-banner head-overlay" >
           <ul>
 						<!--SLIDE--> 
-					<li data-transition="boxfade" data-slotamount="1" data-masterspeed="1000" data-thumb="assets/custom/images/rs-images/fullslide2-320x200.jpg"  data-saveperformance="off"  data-title="Slide">
+					<li data-transition="boxfade" data-slotamount="1" data-masterspeed="1000" data-thumb="assets/custom/images/rotten-tomatoes.png"  data-saveperformance="off"  data-title="Slide">
 						<!-- Background Image -->
 						<img src="assets/custom/images/backgrounds/index-background.jpg"  alt="fullslide2"  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat">
 						
@@ -84,7 +84,8 @@
 						<div id="index-title"
 								class="tp-caption cap-title font-accident-one-bold lfb ltt tp-resizeme"
 							  data-x="center"
-							  style=" white-space: nowrap; top: 30%">OpenMovieDB Example Project
+							  style=" white-space: nowrap; top: 30%">
+							The Movie Box
 						</div>
 
 						<!-- Subtitle -->
@@ -92,7 +93,7 @@
 								class="tp-caption cap-subtitle font-accident-one-normal lfb ltt tp-resizeme"
 							  data-x="center"
 							  data-y="470"
-							  style=" white-space: nowrap;">Start by searching for movie below
+							  style=" white-space: nowrap; text-align: center">Start by typing movie name <br/> in search bar and press enter
 						</div>
 						
 						<!-- Search Result Display -->
@@ -100,7 +101,7 @@
 								 class="tp-caption"
 								 data-x="center"
 								 data-y="220"
-								 style="display: none; width: 1200px; background-color: #000">
+								 style="display: none; width: 70%; height: 55%; background-color: #000">
 							
 							<!-- Carousel for displaying search results -->
 							<div id="carousel-display"
@@ -153,9 +154,7 @@
 												<img style="width: 40%; float:left;" src="assets/custom/images/metacritic.png"></img>
 											</div>
 										</div>
-										<div id="info-clearing-space">
-											
-										</div>
+										<br />
 										<!-- Info Bar (Year, Rating, Length, Genre) -->
 										<div id="info-bar" >
 											<div id="info-year">
@@ -201,26 +200,41 @@
 						</div>
 
 						<!-- Search Bar -->
-						<div class="tp-caption lfb ltt tp-resizeme"
+						<div class="tp-caption"
 							   data-x="center"
 							   data-y="750"
-							   style="white-space: nowrap; max-width: 1200px">
-							<input id="search_bar"
+							   style="white-space: nowrap; width: 80%; ">
+							<input id="search-bar"
 								type="text"
 								placeholder="Enter Movie Name"
 								onfocus="this.placeholder = ''"
-								onblur= "this.placeholder = 'Enter Movie Name';">
+								onblur= "this.placeholder = 'Enter Movie Name';"
+								style="height: 10%; width: 80%; ">
 							</input>
 						</div>
 						
-					  </li>
+					</li>
+					
+					<!-- This is a fix for page not automatically resizing. Throw in a dummy "Slide"
+							 and stop slide rotation. Suddenly, resizing is fine. No idea why. --> 
+					<li data-transition="boxfade" data-slotamount="1" data-masterspeed="1000" data-thumb="assets/custom/images/rotten-tomatoes.png"  data-saveperformance="off"  data-title="Slide">
+						<!-- Background Image -->
+						<img src="assets/custom/images/backgrounds/index-background.jpg"  alt="fullslide2"  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat">
+						
+						<!-- Title -->
+						<div id="index-title"
+								class="tp-caption cap-title font-accident-one-bold lfb ltt tp-resizeme"
+							  data-x="center"
+							  style=" white-space: nowrap; top: 30%">
+							The Movie Box
+						</div>
+					</li>
 					
 					
-					
-            </ul>
+        </ul>
 						
 
-          </div>
+      </div>
 
           <!-- Header and Menu -->
 			 <header id="header-wrapper-mp" class="head-overlay sticky-menu-light">
@@ -228,7 +242,7 @@
 				 <div class="sticky-header header-dark sticky-overlay nobg" role="navigation">
 					 <div class="container mp-nav">
 
-						 <div id="site-title"><h1 class="font-accident-one-bold">OMDb Extravaganza</h1></div>
+						 <div id="site-title"><h1 class="font-accident-one-bold">OMDb Example Project</h1></div>
 
 						 <div id="mobnav-btn"><i class="fa fa-bars"></i></div>
 

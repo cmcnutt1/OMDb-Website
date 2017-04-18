@@ -226,7 +226,7 @@ jQuery(document).ready(function () {
                 thumbAmount: 5,
 
                 navigationType: "none",
-                navigationArrows: "solo",
+                navigationArrows: "hide",
                 navigationStyle: "preview1",
 
                 touchenabled: "off",
@@ -266,16 +266,16 @@ jQuery(document).ready(function () {
 
                 spinner: "spinner0",
 
-                stopLoop: "off",
-                stopAfterLoops: -1,
-                stopAtSlide: -1,
+                stopLoop: "on",
+                stopAfterLoops: 0,
+                stopAtSlide: 1,
 
                 shuffle: "off",
 
                 autoHeight: "off",
                 forceFullWidth: "off",
 
-/*
+
                 hideThumbsOnMobile: "off",
                 hideNavDelayOnMobile: 1500,
                 hideBulletsOnMobile: "off",
@@ -286,10 +286,9 @@ jQuery(document).ready(function () {
                 hideCaptionAtLimit: 0,
                 hideAllCaptionAtLilmit: 0,
                 startWithSlide: 0
-*/
+
             });
     }
-
 
     
     /* Google Analytics

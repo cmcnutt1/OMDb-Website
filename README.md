@@ -1,4 +1,0 @@
-OMDb Website
-
-Init Commit
-

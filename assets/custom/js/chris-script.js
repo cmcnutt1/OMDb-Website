@@ -1,3 +1,8 @@
+/* @author: Chris McNutt
+ * @date: April 2017
+ */
+
+
 jQuery(document).ready(function() {
     
     /* cleanQuery: Clean up user's query. Only grab the words and numbers
@@ -177,8 +182,8 @@ jQuery(document).ready(function() {
             $("#info-poster").append("<img class='info-item' src='assets/custom/images/no-image.png'></img>");
         }
         $("#info-title").append("<h2 class='info-item'>" + info.Title + "</h2>");
-        $("#info-year").append("<h3 class='info-item'>" + info.Year + "</h3>");
-        $("#info-rating").append("<h6 class='info-item' style='padding-top: 10%'>" + info.Rated + "</h6>");
+        $("#info-year").append("<h4 class='info-item'>" + info.Year + "</h3>");
+        $("#info-rating").append("<h4 class='info-item'>" + info.Rated + "</h6>");
         $("#info-length").append("<h4 class='info-item'>" + info.Runtime + "</h4>");
         $("#info-genre").append("<h4 class='info-item'>" + info.Genre + "</h4>");
         $("#info-plot").append("<h5 class='info-item'>" + info.Plot + "</h5>");
@@ -202,7 +207,7 @@ jQuery(document).ready(function() {
         });
         
         //Set 'Enter' Listener, for the case when someone searches when full movie info is showing
-        $("#search_bar").keydown(function(event){
+        $("#search-bar").keydown(function(event){
             if(event.keyCode == 13){
             //If full movie info open, close it and show search results
                 if($("#movie-info-display").css("display") !== "none"){
@@ -214,6 +219,10 @@ jQuery(document).ready(function() {
         });
     }
     
+    /* noMovieFound: Displays message when search returns no results
+     *
+     * Parameters: none
+     */
     function noMovieFound(){
         $(".carousel-inner").append("<h2 style = 'color: #FFF' class = 'item'>Sorry, no movie found for this search. Please check spelling or try another movie.</h2>");
     }
@@ -221,7 +230,7 @@ jQuery(document).ready(function() {
 
     
     //Set 'Enter' listener on search bar
-    $("#search_bar").keydown(function(event){
+    $("#search-bar").keydown(function(event){
         if(event.keyCode == 13){
             
             //Delete everything inside of carousel, if there is anything
@@ -229,7 +238,7 @@ jQuery(document).ready(function() {
             $(".indicator").remove();
             
             //Take input, get ready for API call
-            var search_text = cleanQuery($("#search_bar").val());
+            var search_text = cleanQuery($("#search-bar").val());
             
             //Make API call from cleaned query
             searchApiCall(search_text);
@@ -242,4 +251,7 @@ jQuery(document).ready(function() {
             
         }
     });
+    
+    //Revolting against Revolution Slider template
+    $(".tparrows").remove();
 });
