@@ -13,7 +13,7 @@
     <meta name="keywords" content="OpenMovieDatabase, OMDb, Bootstrap">
 
     <!-- CSS -->
-    <link href="assets/vendor/bootstrap/css/bootstrap.min.css"                     rel="stylesheet" type="text/css" media="screen" />
+    <link href="assets/vendor/bootstrap/css/bootstrap.css"                         rel="stylesheet" type="text/css" media="screen" />
     <link href="assets/vendor/fontawesome/css/font-awesome.css"                    rel="stylesheet" type="text/css" media="screen" />
     <link href="assets/vendor/novecento/css/novecento-font.css"                    rel="stylesheet" type="text/css" media="screen" />
     <link href="assets/vendor/fancybox/css/jquery.fancybox.css?v=2.1.5"            rel="stylesheet" type="text/css" media="screen" />
@@ -23,6 +23,7 @@
     <link href="assets/vendor/rs-plugin/css/extralayers.css"                       rel="stylesheet" type="text/css" media="screen" />
 	  <link href="assets/vendor/feather/css/feather.css"                             rel="stylesheet" type="text/css" media="screen" />
     <link href="assets/custom/css/style.css"                                       rel="stylesheet" type="text/css" media="screen" />
+		<link href="assets/custom/css/chris-style.css"                                 rel="stylesheet" type="text/css" media="screen" />
 
 
     <!-- JS -->
@@ -46,6 +47,7 @@
 	  <script src="assets/vendor/modernizr/js/modernizr.js"                          type="text/javascript"></script>
 		<script src="assets/vendor/jquery-dotdotdot/src/jquery.dotdotdot.min.js"       type="text/javascript"></script>
     <script src="assets/custom/js/script.js"                                       type="text/javascript"></script>
+		<script src="assets/custom/js/chris-script.js"                                 type="text/javascript"></script>
 
 
     <!-- Fonts -->
@@ -61,24 +63,11 @@
         <div class="loader-section section-left"></div>
         <div class="loader-section section-right"></div>
     </div>
-    <!-- /Loader -->
 
-      <!-- sub-top -->
-     <!--<div id="sub-top-light">-->
-      <!--<div class="container">-->
-        <!--<div class="top-contacts">-->
-          <!--<div><a href="#"><i class="fa fa-instagram"></i>@electronic</a></div>-->
-          <!--<div><a href="#"><i class="fa fa-envelope"></i>info@electronic.com</a></div>-->
-          <!--<div><a href="#"><i class="fa fa-phone"></i>1 234 567 89 10</a></div>-->
-        <!--</div>-->
-        <!--<div class="top-shop"><a href="#"><i class="fa fa-shopping-cart"></i>0</a></div>-->
-      <!--</div>-->
-     <!--</div>-->
-      <!-- /sub-top -->
-
-    <!-- main-top -->
-
-    <!-- Revolution Slider -->
+		<!-- Page built on revolution slider, per the template that is being used
+				 It's a pain to work with, but it looks nice -->
+    
+		<!-- Revolution Slider -->
 
     <article class="slider-revolution">
 
@@ -88,17 +77,17 @@
           <ul>
 						<!--SLIDE--> 
 					<li data-transition="boxfade" data-slotamount="1" data-masterspeed="1000" data-thumb="assets/custom/images/rs-images/fullslide2-320x200.jpg"  data-saveperformance="off"  data-title="Slide">
-						<!-- MAIN IMAGE -->
+						<!-- Background Image -->
 						<img src="assets/custom/images/backgrounds/index-background.jpg"  alt="fullslide2"  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat">
 						
-						<!-- MAIN TITLE -->
+						<!-- Title -->
 						<div id="index-title"
 								class="tp-caption cap-title font-accident-one-bold lfb ltt tp-resizeme"
 							  data-x="center"
 							  style=" white-space: nowrap; top: 30%">OpenMovieDB Example Project
 						</div>
 
-						<!-- SUBTITLE -->
+						<!-- Subtitle -->
 						<div id="index-subtitle"
 								class="tp-caption cap-subtitle font-accident-one-normal lfb ltt tp-resizeme"
 							  data-x="center"
@@ -106,42 +95,122 @@
 							  style=" white-space: nowrap;">Start by searching for movie below
 						</div>
 						
+						<!-- Search Result Display -->
 						<div id="search-display"
-								 class="tp-caption tp-resizeme"
+								 class="tp-caption"
 								 data-x="center"
 								 data-y="220"
-								 style="display: none; width=1200px; background-color: #000">
+								 style="display: none; width: 1200px; background-color: #000">
+							
+							<!-- Carousel for displaying search results -->
 							<div id="carousel-display"
 									 class = "carousel slide"
 									 data-ride="carousel"
 									 data-interval="false"
 									 style="width: 100%; height: 100%">
+								
+								<!-- The navigation dots at the bottom -->
+								<ol class="carousel-indicators">							
+								</ol>
+								
 								<!--Search results will populate in here via jQuery-->
 								<div class="carousel-inner" style="width: 100%; height: 100%;">
 								</div>
+								
 								  <!-- Left and right controls -->
-							<a class="left carousel-control" href="#carousel-display" role="button" data-slide="prev">
-							  <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-							  <span class="sr-only">Previous</span>
-							</a>
-						  <a class="right carousel-control" href="#carousel-display" role="button" data-slide="next">
-						    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-								<span class="sr-only">Next</span>
-							</a>		
+								<a class="left carousel-control" href="#carousel-display" role="button" data-slide="prev">
+								  <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+								  <span class="sr-only">Previous</span>
+								</a>
+								<a class="right carousel-control" href="#carousel-display" role="button" data-slide="next">
+								  <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+									<span class="sr-only">Next</span>
+								</a>		
 							</div>
+							
+							<!-- Displaying full movie info, when movie is clicked -->
+							<div id="movie-info-display"
+									 style="display: none;">
+								<!-- Poster -->
+								<div id= "info-poster" >
+								</div>
+								<!-- Div for Title, Info Bar beneath title-->
+								<div id="info-title-bar" >
+									<!-- Title, Info Bar, Exit -->
+									<div id="info-title-info-bar">
+										<!-- Title -->
+										<div id = "info-title">
+										</div>
+									<!-- What the critics think -->
+										<div id="info-reviews">
+											<div id="info-imdb">
+												<img style="width: 40%; float:left;" src="assets/custom/images/imdb.png"></img>
+											</div>
+											<div id="info-rt">
+												<img style="width: 40%; float:left;" src="assets/custom/images/rotten-tomatoes.png"></img>
+											</div>
+											<div id="info-meta">
+												<img style="width: 40%; float:left;" src="assets/custom/images/metacritic.png"></img>
+											</div>
+										</div>
+										<div id="info-clearing-space">
+											
+										</div>
+										<!-- Info Bar (Year, Rating, Length, Genre) -->
+										<div id="info-bar" >
+											<div id="info-year">
+												Year
+											</div>
+											<div id="info-rating" >
+												Rated
+											</div>
+											<div id="info-length" >
+												Runtime
+											</div>
+											<div id="info-genre" >
+												Genre
+											</div>
+											
+										</div>
+									<!-- End Title + Info Bar block -->
+									</div>
+									<a id="info-close" href="#">
+										<div id="info-close-interior">
+												X
+										</div>
+									</a>
+								<!-- End Poster + Title + Info Block -->
+								</div>
+								
+								<div id="info-bottom-box">
+									<!-- Plot Description -->
+									<div id="info-plot">
+									</div>
+								
+									<!-- Actors / Directors -->
+									<div id="info-actors">
+										Actors
+									</div>
+									<div id="info-directors">
+										Director(s)
+									</div> 
+								</div>
+							</div>	
+							
+						<!-- End Movie Full Info Display -->	
 						</div>
 
-						<!-- SEARCHBAR -->
+						<!-- Search Bar -->
 						<div class="tp-caption lfb ltt tp-resizeme"
-							  data-x="center"
-							  data-y="750"
-							  style=" white-space: nowrap; max-width: 1200px;">
+							   data-x="center"
+							   data-y="750"
+							   style="white-space: nowrap; max-width: 1200px">
 							<input id="search_bar"
-									type="text"
-									placeholder="Enter Movie Name"
-									onfocus="this.placeholder = ''"
-									onblur= "this.placeholder = 'Enter Movie Name';"/input>
-							<button id="search_button" type="submit" style="align-content: center;"></button>
+								type="text"
+								placeholder="Enter Movie Name"
+								onfocus="this.placeholder = ''"
+								onblur= "this.placeholder = 'Enter Movie Name';">
+							</input>
 						</div>
 						
 					  </li>
@@ -169,22 +238,8 @@
                          <li><a href="index.html">Home</a>
                             <div class="mobnav-subarrow"></div>
                          </li>
-                         <li class="current"><a href="about.html">About</a></li>
                          <li><a href="https://github.com/cmcnutt1/OMDb-Website">Github Page</a>
                          </li>
-                         <!--<li><a href="#"><i class="fa fa-search"></i></a>-->
-                            <!--<div class="mobnav-subarrow"></div>-->
-                            <!--<ul class="submenu search-panel">-->
-                               <!--<li class="">-->
-                                  <!--<form class="form-inline" role="form">-->
-                                     <!--<div class="form-group">-->
-                                        <!--<input type="text" class="form-control" id="exampleInputEmail2" placeholder="Search">-->
-                                        <!--<button type="submit" class="btn btn-default">Ok</button>-->
-                                     <!--</div>-->
-                                  <!--</form>-->
-                               <!--</li>-->
-                            <!--</ul>-->
-                         <!--</li>-->
                       </ul>
 
                    </nav>
@@ -192,8 +247,7 @@
 					 </div>
 
 			 </header>
-          <!-- /Header and Menu Ovelay Mode -->
-
+          <!-- End Header and Menu Overlay-->
     </div>
 				 
 

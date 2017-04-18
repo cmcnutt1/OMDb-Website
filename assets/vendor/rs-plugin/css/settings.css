@@ -1601,9 +1601,9 @@ img.tp-slider-alternative-image	{	width:100%; height:auto;}
 .tp-simpleresponsive ul li,
 .tp-simpleresponsive ul li:before {
   list-style:none;
-  padding:0 !important;
-  margin:0 !important;
-  list-style:none !important;
+  /*padding:0 !important;*/
+  /*margin:0 !important;*/
+  /*list-style:none !important;*/
   overflow-x: visible;
   overflow-y: visible;
   background-image:none

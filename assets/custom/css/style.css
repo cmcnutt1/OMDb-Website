@@ -576,7 +576,7 @@ ul {
   list-style: none;
   margin-left: 0px; }
   ul li {
-    padding: 4px 0; }
+    padding: 0; }
 
 ul.list-o {
   list-style: none;
@@ -3449,62 +3449,4 @@ a.gm-toggle-link {
     height: 80px; } }
 
 /*# sourceMappingURL=style.css.map */
-
-/* Additional CSS for carousel images */
-
-/*Make carousel images show up in middle of div*/
-.carousel-inner > .item > a > img {
-  margin:0 auto;
-  height: 350px;
-  width: 224px;
-  margin-top: 60px;
-}
-
-#search-display {
-  margin: 0 auto;
-  height: 500px;
-  width: 1200px;
-  background-color: #000;
-
-}
-
-.search-result-left {
-  width: 35%;
-  float: left;
-  margin-left: 10%;
-  margin-right: 5%;
-  text-align: center;
-  overflow: hidden;
-}  
-.search-result-right {
-  width: 35%;
-  float: left;
-  margin-left: 5%;
-  margin-right: 10%;
-  text-align: center;
-  
-}
-
-.search-result-right > a > img,
-.search-result-left > a > img{
-  height: 350px;
-  width: 224px;
-  margin-top: 60px;
-}
-
-.search-result-right > a > p,
-.search-result-left > a  > p ,
-.item > a > p  {
-  margin-top: 40px;
-  overflow: hidden;
-  line-height: 1;
-  width: 70%;
-  height: 42px;
-  margin: 0 auto;
-  text-align: center;
-  word-wrap: break-word;
-  white-space: normal;
-  font-size: 20px;
-}
-
 

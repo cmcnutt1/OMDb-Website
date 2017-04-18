@@ -293,7 +293,7 @@ jQuery(document).ready(function () {
 
     
     /* Google Analytics
-     **Not necessary, site's not going online. Commented out**
+     **Not necessary for this project. Commented out**
 
     (function (i, s, o, g, r, a, m) {
         i['GoogleAnalyticsObject'] = r;
@@ -310,135 +310,9 @@ jQuery(document).ready(function () {
     ga('create', 'UA-40696437-6', 'auto');
     ga('send', 'pageview');
     */
-    
-    
-    //
-    // OpenMovieDB API Calling
-    //
-    
-    //Make ajax synchronous.
-    //Not the best solution, but appropriate for this project
-    /*$.ajaxSetup({
-        async: false
-    });
-    */
-    
-    
-    /* cleanQuery: Clean up user's query. Only grab the words and numbers
-     *
-     * Parameters: query - User's search text
-     */
-    function cleanQuery(query){
-        var words = query.split(" ");        
-        //console.log(words);
-        var search_string = "";
-        
-        for(var i = 0; i < words.length; i++){
-            //Catch extra spaces in query
-            if(words[i] === ""){
-                //do nothing
-            }          
-            //If not the last entry in the array...
-            else if((i + 1 != words.length)){
-                search_string += (words[i] + " ");
-            }           
-            //If last entry, don't add space
-            else{
-                search_string += words[i];
-            }
-        }
-        
-        //Return the cleaned query
-        return search_string;
-    }
-    
-    function apiCall(query){
-        
-        var url = "http://www.omdbapi.com/?s=" + encodeURI(query) + "&type=movie";
-        $.getJSON(url).then(function(data){
-            console.log(data.Response);
-            if(data.Response === "True"){
-                console.log(data);
-                populateResults(data);
-            }
-        });
-    }
-    
-    function getSearchResults(query){
-        var results;
-        apiCall(query, function(data){
-            results = data;
-        });
-        
-        return results;
-    }
-    
-    function searchTransition(){
-        $("#index-subtitle").fadeOut("slow");
-        $("#index-title").animate({
-            top: "-=18%",
-        }, 1000);
-        $("#search-display").fadeIn(2000);
-    }
-    
-    function populateResults(json){
-        var movies = json.Search;
-        var result_len = movies.length;
-        var image_src = [];
-        
-        for(var i = 0; i<result_len; i++){
-            if(movies[i].Poster !== "N/A"){
-                image_src.push(movies[i].Poster);
-            }
-            else{
-                image_src.push("assets/custom/images/no-image.png");
-            }
-        }
-        
-        var i = 0;
-        
-        while(i+2 <= result_len){
-            
-            if(i===0){
-                $(".carousel-inner").append("<div class='item active'><div class ='search-result-left'><a href='#'><img src =" + image_src[i] + "><p class='title-text'>" + movies[i].Title + "</p><p>(" + movies[i].Year + ")</p></img></a></div><div class='search-result-right'><a href='#'><img src =" + image_src[i+1] + "></img><p class='title-text'>" + movies[i+1].Title + "</p><p>(" + movies[i+1].Year + ")</p></a></div></div>");
-            }
-            else{
-                $(".carousel-inner").append("<div class='item'><div class ='search-result-left' style = 'align-text:center'><a href='#'><img src =" + image_src[i] + "><p class='title-text'>" + movies[i].Title + "</p><p>(" + movies[i].Year + ")</p></img></a></div><div class='search-result-right'><a href='#'><img src =" + image_src[i+1] + "><p class='title-text'>" + movies[i+1].Title + "</p><p>(" + movies[i+1].Year + ")</p></img></a></div>");
-            }
-           
-           i+=2;
-        }
-        
-        if(i+1 < result_len){
-            if(i===0){
-                $(".carousel-inner").append("<div class='item active'><a href='#'><img src =" + image_src[i] + "><p class='title-text'>" + movies[i].Title + "</p><p>(" + movies[i].Year + ")</p></img></a></div>");
-            }
-            else{
-                $(".carousel-inner").append("<div class='item'><a href='#'><img src =" + image_src[i] + "><p class='title-text'>" + movies[i].Title + "</p><p>(" + movies[i].Year + ")</p></img></a></div>");
-            }
-        }
-        
-            $(".title-text").dotdotdot();
-  
-    }
-    
 
     
-    //Set 'Enter' listener on search bar
-    $("#search_bar").keydown(function(event){
-        if(event.keyCode == 13){
-            //Delete anything inside of carousel, if there is anything
-            $(".item").remove();
-            //Take input, get ready for API call
-            var search_text = cleanQuery($("#search_bar").val());            
-            var results = getSearchResults(search_text);
-            if($("#index-subtitle").css("display") !== "none"){
-                searchTransition();
-            }
-            //console.log(results);
-            
-        }
-    });
+
 });
 
 
